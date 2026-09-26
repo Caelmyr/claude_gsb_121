@@ -1224,7 +1224,7 @@ class NameNode:
             pass
 
     def _record_hourly(self, key, amount):
-        hour = hour_key(now(), config.STATS_HOUR_OFFSET)
+        hour = hour_key(now())
         with self.meta.lock:
             hourly = self.meta.get("stats").setdefault("hourly", {})
             bucket = hourly.setdefault(hour, {"uploads": 0, "downloads": 0,

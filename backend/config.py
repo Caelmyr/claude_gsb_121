@@ -84,7 +84,6 @@ RECOVERY_SCAN_INTERVAL = 2.0           # 恢复调度线程扫描间隔（秒）
 GC_INTERVAL = 20.0                     # 垃圾块回收扫描间隔（秒）
 GC_GRACE_SECONDS = 45.0                # 未被引用的块保留宽限期（秒）
 STATS_INTERVAL = 15.0                  # 容量历史采样间隔（秒）
-STATS_HOUR_OFFSET = 8                  # 小时级吞吐桶写入侧的小时偏移（小时）
 META_FLUSH_INTERVAL = 2.0              # 脏元数据文档刷盘间隔（秒）
 TRASH_EXPIRE_CHECK_INTERVAL = 60.0     # 回收站过期清理检查间隔（秒）
 
