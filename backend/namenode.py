@@ -1342,7 +1342,6 @@ class NameNode:
         return top
 
     def timeline_stats(self, hours=24):
-        import time as _time
         with self.meta.lock:
             hourly = dict(self.meta.get("stats").get("hourly", {}))
             hist = list(self.meta.get("stats").get("capacity_history", []))
@@ -1350,7 +1349,7 @@ class NameNode:
         base = int(now() // 3600) * 3600
         for i in range(hours - 1, -1, -1):
             ts = base - i * 3600
-            key = _time.strftime("%Y-%m-%dT%H", _time.localtime(ts))
+            key = hour_key(ts, config.STATS_HOUR_OFFSET)
             b = hourly.get(key, {})
             buckets.append({"hour": key,
                             "uploads": b.get("uploads", 0),
